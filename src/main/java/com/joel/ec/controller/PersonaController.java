@@ -1,10 +1,12 @@
 package com.joel.ec.controller;
 
+import com.joel.ec.exception.ResourceNotFoundException;
 import com.joel.ec.model.dto.PersonaDto;
 import com.joel.ec.model.entity.Persona;
 import com.joel.ec.model.payload.MensajeResponse;
 import com.joel.ec.service.IPersonaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,13 +24,8 @@ public class PersonaController {
     public ResponseEntity<?> showAll(){
         List<Persona> geList = personaService.listAll();
 
-        if (geList == null){
-            return new ResponseEntity<>(
-                    MensajeResponse.builder()
-                            .mensaje("No hay registro")
-                            .object(null)
-                            .build()
-                    , HttpStatus.OK);
+        if (geList == null || geList.isEmpty() ){
+            throw new ResourceNotFoundException("personas");
         }
         return new ResponseEntity<>(
                 MensajeResponse.builder()
@@ -42,12 +39,7 @@ public class PersonaController {
         Persona persona = personaService.findById(id);
 
         if (persona == null){
-            return new ResponseEntity<>(
-                    MensajeResponse.builder()
-                            .mensaje("El registro que intenta buscar no exite")
-                            .object(null)
-                            .build()
-                    , HttpStatus.NOT_FOUND);
+           throw new ResourceNotFoundException("Persona", "id",id);
         }
 
         return new ResponseEntity<>(

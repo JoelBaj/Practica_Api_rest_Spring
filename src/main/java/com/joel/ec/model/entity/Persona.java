@@ -1,6 +1,8 @@
 package com.joel.ec.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -15,6 +17,7 @@ import java.util.List;
 @Builder
 @Entity
 @Table(name="personas")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idPersona")
 public class Persona implements Serializable {
 
     @Id
@@ -32,7 +35,7 @@ public class Persona implements Serializable {
     private Date FechaNacimiento;
 
     @OneToMany(mappedBy = "persona")
-    @JsonIgnore
+    //@JsonIgnore
     private List<Usuario> usuario;
 
 }

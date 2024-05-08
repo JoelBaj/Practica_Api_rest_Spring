@@ -1,10 +1,13 @@
 package com.joel.ec.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
 import java.util.List;
+
 
 @Data
 @AllArgsConstructor
@@ -13,6 +16,7 @@ import java.util.List;
 @Builder
 @Entity
 @Table(name = "usuarios")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idUsuario")
 public class Usuario implements Serializable {
 
     @Id

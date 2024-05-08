@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.ToString;
 
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.List;
 public class PersonaDto  implements Serializable {
 
     private Integer idPersona;
+    @Size(min = 2, max=25)
     private String Nombre;
     private String Apellido;
     private String Identificacion;

@@ -7,6 +7,4 @@ import java.util.List;
 public interface IPersonaService {
     List<Persona> listAll();
     Persona findById(Integer Id);
-
-
 }
