@@ -1,8 +1,7 @@
 package com.joel.ec.service.impl;
 
 
-import com.joel.ec.model.dao.UsuarioDao;
-import com.joel.ec.model.entity.Persona;
+import com.joel.ec.model.repository.UsuarioDao;
 import com.joel.ec.model.entity.Usuario;
 import com.joel.ec.service.IUsuarioService;
 import jakarta.transaction.Transactional;

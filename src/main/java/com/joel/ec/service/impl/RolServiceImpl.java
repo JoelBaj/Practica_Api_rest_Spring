@@ -1,6 +1,6 @@
 package com.joel.ec.service.impl;
 
-import com.joel.ec.model.dao.RolDao;
+import com.joel.ec.model.repository.RolDao;
 import com.joel.ec.model.entity.Rol;
 import com.joel.ec.service.IRolService;
 import jakarta.transaction.Transactional;

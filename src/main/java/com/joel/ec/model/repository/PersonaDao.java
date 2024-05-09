@@ -1,4 +1,4 @@
-package com.joel.ec.model.dao;
+package com.joel.ec.model.repository;
 
 import com.joel.ec.model.entity.Persona;
 import org.springframework.data.repository.CrudRepository;

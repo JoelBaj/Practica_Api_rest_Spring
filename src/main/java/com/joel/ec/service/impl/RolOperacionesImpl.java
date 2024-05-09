@@ -1,6 +1,6 @@
 package com.joel.ec.service.impl;
 
-import com.joel.ec.model.dao.RolOpcionesDao;
+import com.joel.ec.model.repository.RolOpcionesDao;
 import com.joel.ec.model.entity.Rol_opciones;
 import com.joel.ec.service.IRolOpcionesService;
 import org.springframework.beans.factory.annotation.Autowired;
